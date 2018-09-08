@@ -2,7 +2,6 @@
 import scrapy
 from douban.items import DoubanItem
 
-
 class DoubanmovieSpider(scrapy.Spider):
     name = 'doubanmovie'
     allowed_domains = ['movie.douban.com']
@@ -27,4 +26,4 @@ class DoubanmovieSpider(scrapy.Spider):
 
         if self.offset < 225:
             self.offset += 25
-            yield scrapy.request(self.url +str(self.offset),callback = self.parse)
+            yield scrapy.Request(self.url +str(self.offset),callback = self.parse)

@@ -54,7 +54,7 @@ COOKIES_ENABLED = False
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     'douban.middlewares.RandomUserAgent': 100,
-    'douban.middlewares.RandomProxy': 200,
+    #'douban.middlewares.RandomProxy': 200,
 }
 
 USER_AGENTS = [

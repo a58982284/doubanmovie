@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#! D:\ProgramData\Anaconda2\envs\doubanmovie\python
 #coding:utf-8
 
 import random
@@ -7,14 +7,17 @@ from scrapy.conf import settings
 from douban.settings import USER_AGENTS
 from douban.settings import PROXIES
 
-#随机的User-Agent
-class RandomUserAgent(object):
-    def process_request(self,request,spider):
-        useragent = random.choice(USER_AGENTS)
-        #proxy = random.choice(PROXIES)
-        request.headers.setdefault("User-Agent",useragent)
 
-    def RandomProxy(self,request,spider):
+# 随机的User-Agent
+class RandomUserAgent(object):
+    def process_request(self, request, spider):
+        useragent = random.choice(USER_AGENTS)
+        # proxy = random.choice(PROXIES)
+        request.headers.setdefault("User-Agent", useragent)
+
+'''
+class RandomProxy(object):
+    def process_request(self, request, spider):
         proxy = random.choice(PROXIES)
 
         if proxy['user_passwd'] is None:
@@ -25,3 +28,4 @@ class RandomUserAgent(object):
             base64_userpasswd = base64.b64encode(proxy['user_passwd'])
             request.headers['proxy-Authorization'] = 'Basic' + base64_userpasswd
             request.meta['proxy'] = "http://" + proxy['ip_port']
+'''
